@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://ctiuggbybnc78"]
+
+[ext_resource type="Script" uid="uid://cx22vbxwtvj1g" path="res://scripts/main_menu.gd" id="1_gfuld"]
+[ext_resource type="Texture2D" uid="uid://bnkoy10tfgppa" path="res://assets/hitman_gun.png" id="2_vvzeq"]
+[ext_resource type="Texture2D" uid="uid://b7qlrwi8qoajh" path="res://assets/zombie_hold.png" id="3_l0vec"]
+[ext_resource type="Texture2D" uid="uid://bwwh87tgtaodm" path="res://assets/zombie_stand.png" id="4_o6dey"]
+[ext_resource type="AudioStream" uid="uid://dben6jl6onf07" path="res://assets/music.mp3" id="5_d36g1"]
+
+[node name="MainMenu" type="Control" unique_id=1765710833]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gfuld")
+
+[node name="Background" type="ColorRect" parent="." unique_id=243901633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11, 0.098, 0.118, 1)
+
+[node name="Title" type="Label" parent="." unique_id=126132603]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 56.0
+offset_right = 612.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0.91, 0.42, 0.09, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.04, 0.05, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 72
+text = "CONVENTILLO"
+
+[node name="Subtitle" type="Label" parent="." unique_id=1013995217]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 140.0
+offset_right = 616.0
+offset_bottom = 168.0
+theme_override_colors/font_color = Color(0.82, 0.78, 0.74, 1)
+theme_override_font_sizes/font_size = 18
+text = "Cruzá el conventillo y el galpón sin que te toquen."
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1329831153]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 200.0
+offset_right = 316.0
+offset_bottom = 440.0
+theme_override_constants/separation = 12
+
+[node name="PlayButton" type="Button" parent="Buttons" unique_id=1909478434]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Jugar"
+
+[node name="QuitButton" type="Button" parent="Buttons" unique_id=542631367]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Salir"
+
+[node name="Controls" type="Label" parent="." unique_id=959078072]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = -52.0
+offset_right = -40.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.6, 0.57, 0.55, 1)
+theme_override_font_sizes/font_size = 15
+text = "WASD mover   -   mouse apuntar   -   clic izquierdo disparar   -   R reiniciar   -   Esc menú"
+
+[node name="Hitman" type="TextureRect" parent="." unique_id=1734265659]
+texture_filter = 1
+layout_mode = 0
+offset_left = 540.0
+offset_top = 300.0
+offset_right = 662.0
+offset_bottom = 408.0
+rotation = -0.3
+pivot_offset = Vector2(38, 54)
+texture = ExtResource("2_vvzeq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ZombieHold" type="TextureRect" parent="." unique_id=2081250197]
+texture_filter = 1
+layout_mode = 0
+offset_left = 760.0
+offset_top = 200.0
+offset_right = 848.0
+offset_bottom = 308.0
+rotation = 2.6
+pivot_offset = Vector2(44, 54)
+texture = ExtResource("3_l0vec")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ZombieStand" type="TextureRect" parent="." unique_id=885746241]
+modulate = Color(0.75, 0.55, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 800.0
+offset_top = 350.0
+offset_right = 883.0
+offset_bottom = 458.0
+rotation = 3.3
+pivot_offset = Vector2(42, 54)
+texture = ExtResource("4_o6dey")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=387795343]
+stream = ExtResource("5_d36g1")
+volume_db = -8.0
+autoplay = true

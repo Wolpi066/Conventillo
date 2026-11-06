@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://cynd2jun42ibm"]
+
+[ext_resource type="Script" uid="uid://dptcgfrln6tno" path="res://scripts/player.gd" id="1_sxoyz"]
+[ext_resource type="PackedScene" uid="uid://dxhf2am6stgtb" path="res://escenas/bullet.tscn" id="2_95p1n"]
+[ext_resource type="Texture2D" uid="uid://bnkoy10tfgppa" path="res://assets/hitman_gun.png" id="3_x9rbf"]
+[ext_resource type="AudioStream" uid="uid://6y4dt66l7rcr" path="res://assets/shoot.wav" id="4_lhp8p"]
+[ext_resource type="PackedScene" uid="uid://5nfctyxiabyy" path="res://escenas/blood.tscn" id="5_g337q"]
+[ext_resource type="AudioStream" uid="uid://b7f7gqkrg7ov5" path="res://assets/empty_click.ogg" id="6_n4akb"]
+[ext_resource type="Texture2D" uid="uid://bjvhdfa6dfq68" path="res://assets/bullet_icon.png" id="7_5wkmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j0yql"]
+radius = 14.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1053676196 groups=["player"]]
+motion_mode = 1
+script = ExtResource("1_sxoyz")
+bullet_scene = ExtResource("2_95p1n")
+blood_scene = ExtResource("5_g337q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1847953448]
+position = Vector2(9, 0)
+texture = ExtResource("3_x9rbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=24746728]
+shape = SubResource("CircleShape2D_j0yql")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=422166566]
+position = Vector2(34, 10)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=305902533]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=628622931]
+stream = ExtResource("4_lhp8p")
+volume_db = -6.0
+
+[node name="EmptySound" type="AudioStreamPlayer" parent="." unique_id=1225796588]
+stream = ExtResource("6_n4akb")
+
+[node name="RestartTimer" type="Timer" parent="." unique_id=915410499]
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=998470832]
+
+[node name="Message" type="Label" parent="CanvasLayer" unique_id=1607473038]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.36, 0.3, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.04, 0.05, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 48
+text = "TE AGARRARON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=246172359]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -296.0
+offset_top = 10.0
+offset_right = -16.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.95, 0.92, 0.88, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.04, 0.05, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 22
+text = "PUNTOS: 0"
+horizontal_alignment = 2
+
+[node name="AmmoIcon" type="TextureRect" parent="CanvasLayer" unique_id=1972259350]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -60.0
+offset_right = 37.0
+offset_bottom = -16.0
+grow_vertical = 0
+texture = ExtResource("7_5wkmk")
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=432857916]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -54.0
+offset_right = 186.0
+offset_bottom = -22.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.95, 0.92, 0.88, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.04, 0.05, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+text = "x 12"
+vertical_alignment = 1

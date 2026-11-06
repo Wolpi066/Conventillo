@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ci0alwbl4x1yv"]
+
+[ext_resource type="Script" uid="uid://7784iu2vi3cx" path="res://scripts/smart_zombie.gd" id="1_rjg9v"]
+[ext_resource type="Texture2D" uid="uid://bwwh87tgtaodm" path="res://assets/zombie_stand.png" id="2_in0bf"]
+[ext_resource type="PackedScene" uid="uid://5nfctyxiabyy" path="res://escenas/blood.tscn" id="3_rk7b8"]
+[ext_resource type="PackedScene" uid="uid://3pf3sonhhckp" path="res://escenas/ammo_pickup.tscn" id="4_er3y2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fff1w"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kipba"]
+radius = 21.0
+
+[node name="SmartZombie" type="CharacterBody2D" unique_id=547638943]
+motion_mode = 1
+script = ExtResource("1_rjg9v")
+speed = 135.0
+points = 150
+blood_scene = ExtResource("3_rk7b8")
+ammo_scene = ExtResource("4_er3y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1402787268]
+modulate = Color(0.75, 0.55, 1, 1)
+position = Vector2(2, 0)
+texture = ExtResource("2_in0bf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1002540994]
+shape = SubResource("CircleShape2D_fff1w")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1995973499]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1979972245]
+shape = SubResource("CircleShape2D_kipba")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1461205162]
+path_desired_distance = 16.0
+target_desired_distance = 12.0

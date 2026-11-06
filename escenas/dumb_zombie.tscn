@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bpruda0mayxa6"]
+
+[ext_resource type="Script" uid="uid://dmhrul5omhsfj" path="res://scripts/dumb_zombie.gd" id="1_lhp8p"]
+[ext_resource type="Texture2D" uid="uid://b7qlrwi8qoajh" path="res://assets/zombie_hold.png" id="2_rjg9v"]
+[ext_resource type="PackedScene" uid="uid://5nfctyxiabyy" path="res://escenas/blood.tscn" id="3_51mlg"]
+[ext_resource type="PackedScene" uid="uid://3pf3sonhhckp" path="res://escenas/ammo_pickup.tscn" id="4_8sw48"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_in0bf"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kndav"]
+radius = 21.0
+
+[node name="DumbZombie" type="CharacterBody2D" unique_id=1706857377]
+motion_mode = 1
+script = ExtResource("1_lhp8p")
+speed = 165.0
+blood_scene = ExtResource("3_51mlg")
+ammo_scene = ExtResource("4_8sw48")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=41021306]
+position = Vector2(2, 0)
+texture = ExtResource("2_rjg9v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1084591670]
+shape = SubResource("CircleShape2D_in0bf")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1581166333]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1620005363]
+shape = SubResource("CircleShape2D_kndav")

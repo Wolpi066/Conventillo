@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://wub07v2evvm"]
+
+[ext_resource type="Script" uid="uid://b67cxrlqbqeu8" path="res://scripts/goal.gd" id="1_mkyrs"]
+[ext_resource type="Texture2D" uid="uid://kodw87ciel71" path="res://assets/tilesheet.png" id="2_vr4ta"]
+[ext_resource type="AudioStream" uid="uid://325l1nolxms" path="res://assets/door_open.ogg" id="3_gdsa0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7ea4"]
+size = Vector2(72, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wixk6"]
+size = Vector2(28, 64)
+
+[node name="Goal" type="Area2D" unique_id=1708032984]
+script = ExtResource("1_mkyrs")
+
+[node name="Hinge" type="Node2D" parent="." unique_id=664188541]
+position = Vector2(0, -32)
+
+[node name="Door" type="Sprite2D" parent="Hinge" unique_id=1129954100]
+position = Vector2(0, 32)
+texture = ExtResource("2_vr4ta")
+region_enabled = true
+region_rect = Rect2(594, 1024, 28, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=538827431]
+position = Vector2(-14, 0)
+shape = SubResource("RectangleShape2D_i7ea4")
+
+[node name="Blocker" type="StaticBody2D" parent="." unique_id=1963245776]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker" unique_id=153683219]
+shape = SubResource("RectangleShape2D_wixk6")
+
+[node name="Label" type="Label" parent="." unique_id=1412207774]
+offset_left = -152.0
+offset_top = -12.0
+offset_right = -48.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.85, 1, 0.9, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.2, 0.12, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 18
+text = "SALIDA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="." unique_id=1855125136]
+stream = ExtResource("3_gdsa0")

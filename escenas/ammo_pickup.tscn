@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://3pf3sonhhckp"]
+
+[ext_resource type="Script" uid="uid://bcmtxyk7jlsq4" path="res://scripts/ammo_pickup.gd" id="1_x5vtd"]
+[ext_resource type="Texture2D" uid="uid://dcwoeunk05r4k" path="res://assets/ammo_crate.png" id="2_vhhfd"]
+[ext_resource type="Texture2D" uid="uid://bjvhdfa6dfq68" path="res://assets/bullet_icon.png" id="3_d57f6"]
+[ext_resource type="AudioStream" uid="uid://b7c0s3lhi5blo" path="res://assets/ammo_pickup.ogg" id="4_y08fv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_echxt"]
+radius = 20.0
+
+[node name="AmmoPickup" type="Area2D" unique_id=30858290]
+script = ExtResource("1_x5vtd")
+
+[node name="Crate" type="Sprite2D" parent="." unique_id=169895137]
+texture = ExtResource("2_vhhfd")
+
+[node name="BulletIcon" type="Sprite2D" parent="." unique_id=26070517]
+position = Vector2(0, -26)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_d57f6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1573703503]
+shape = SubResource("CircleShape2D_echxt")
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="." unique_id=49823261]
+stream = ExtResource("4_y08fv")

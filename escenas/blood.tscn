@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://5nfctyxiabyy"]
+
+[ext_resource type="Script" uid="uid://bvg2w10np1fsv" path="res://scripts/blood.gd" id="1_ltfsl"]
+[ext_resource type="Texture2D" uid="uid://pmlqc38hf1l3" path="res://assets/blood_splat.png" id="2_7y7o1"]
+[ext_resource type="Texture2D" uid="uid://gcsfoenh2sp1" path="res://assets/blood_drop.png" id="3_lgowj"]
+
+[sub_resource type="Gradient" id="Gradient_dbrxe"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Blood" type="Node2D" unique_id=1044891974]
+script = ExtResource("1_ltfsl")
+
+[node name="Splat" type="Sprite2D" parent="." unique_id=1978710373]
+modulate = Color(0.6, 0.02, 0.04, 1)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_7y7o1")
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=133904839]
+amount = 22
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("3_lgowj")
+spread = 35.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 120.0
+initial_velocity_max = 320.0
+damping_min = 300.0
+damping_max = 500.0
+scale_amount_min = 0.3
+scale_amount_max = 0.7
+color = Color(0.75, 0.03, 0.05, 1)
+color_ramp = SubResource("Gradient_dbrxe")
